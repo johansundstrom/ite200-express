@@ -17,18 +17,32 @@ app.use(express.static('public'));
 
 //Routes HTTP POST requests to the specified path och callback
 app.post('/api', (req, res) => {
-  var temp = req.body.temp;
-  var humid = req.body.humid;
+  var h_temp = req.headers.h_temp;
+  var h_humid = req.headers.h_humid;
+  var b_temp = req.body.b_temp;
+  var b_humid = req.body.b_humid;
+
+  if(h_temp) {
+    console.log("h_temp: " + h_temp);
+  }
+  if(h_humid) {
+    console.log("h_humid: " + h_humid);
+  }
+  if(b_temp) {
+    console.log("b_temp: " + b_temp);
+  }
+  if(b_humid) {
+    console.log("b_humid: " + b_humid);
+  }
   
-
-  console.log(temp + " Celcius");
-  console.log(humid + " %");
-
+  
 
   //Sends a JSON response
   res.json({
-    temp: temp,
-    humid: humid
+    h_temp: h_temp,
+    h_humid: h_humid,
+    b_temp: b_temp,
+    b_humid: b_humid
   });
 });
 
