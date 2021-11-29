@@ -26,7 +26,7 @@ void loop() {
   //konstruera postdata
   const float temp = 24.21;
   const int humid = 45;
-  const String postData = "temp=" + String(temp) + "&humid=" + String(humid);
+  const String postData = "h_temp=" + String(temp) + "&h_humid=" + String(humid);
   
   http.begin(client, HOST);
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
