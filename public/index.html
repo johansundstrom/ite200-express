@@ -34,16 +34,26 @@
   </nav>
 
   <div class="container">
-    <h1>En postdataserver</h1>
-    <p>Denna server tar emot HTTP requests och returnerar parametrar i JSON format. Parametrar som returneras är <mark>temp</mark> och <mark>humid</mark>.</p>
+    <h1>En server för test av postdata</h1>
+    <p>Denna server tar emot HTTP requests med metoden POST och returnerar definierade parametrar i HTTP HEADER och BODY. Parametrar som returneras är <mark>h_temp</mark>, <mark>h_humid</mark> och <mark>b_temp</mark>, <mark>b_humid</mark>.</p>
     <ul>
       <li>IP</li>
+      <li>method: POST</li>
+      <li>Content-Type: application/x-www-form-urlencoded</li>
       <li>Port: 3000</li>
-      <li>param1: temp</li>
-      <li>param2: humid</li>
+      <li>param1: h_temp (data i header)</li>
+      <li>param2: h_humid (data i header)</li>
+      <li>param3: b_temp (data i body)</li>
+      <li>param4: b_humid (data i body)</li>
     </ul>
-    <p>Exempel på REQ</p>
+    <h3>Exempel på REQ</h3>
     <pre>http://&lt;ip&gt;:3000/api</pre>
+    <h3>ESP8266</h3>
+    <pre>"h_temp=" + String(temp) + "&h_humid=" + String(humid)</pre>
+    <h3>Postman</h3>
+    <p>Content-Type: application/x-www-form-urlencoded</p>
+    <p>Data i HEADERS eller BODY</p>
+
   </div>
 
   <!-- Optional JavaScript -->
